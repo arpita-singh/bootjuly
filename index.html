@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo Login Page</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+
+        <main>
+
+            <h1>Login</h1>
+
+            <section class="s-existing-user hidden">
+
+                <h2>Continue with an existing user</h2>
+                <label for="existing-user">Select username:</label>
+                <select id="existing-user">
+                    <option>No users found</option>
+                </select>
+                <button id="continue" disabled>Load user</button>
+
+            </section>
+
+            <section class="s-new-user">
+
+                <h2>Create a new user</h2>
+                <label for="new-user">Enter an alphanumeric username:</label>
+                <input id="new-user" type="text" required pattern="[a-zA-Z0-9]+" title="Username must be alphanumeric, with no spaces or special characters.">
+                <button id="create" disabled>Create user</button>
+
+            </section>
+
+            <section class="s-reset hidden">
+
+                <h2>Clear all stored users</h2>
+                <button id="reset" disabled>Clear and refresh</button>
+
+            </section>
+
+            <section class="s-report">
+
+                <h2>Access the Leader Board</h2>
+                <a href=" /bootjuly/report.php"><button id="report" >Load report</button></a>
+
+            </section>
+
+        </main>
+
+        <script src="js/app.js"></script>
+
+    </body>
+</html>
