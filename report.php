@@ -14,37 +14,34 @@
     $request = [
         "reports"=> [
             [
-                "id" => "report-1",
+                "id" => "sessions-list",
                 "type"=> "sessions-list",
                 "limit"=> 10,
                 "display_user" => true,
                 "activities"=> [
                     ["id"=> "56d23693-df43-486a-882b-d7ccd010ada2", "name"=> "Movie Trivia"],
-                ]
-                // "users"=> [
-                //     [
-                //         "id"=> $currentUser[0], "name"=> $currentUser[0]
-                //     ]
-                // ]
+                ],
             ],
-            // [
-            //     "id" =>    "report-2",
-            //     "type" =>  "progress-by-tag-by-user",
-            //     "users" => [
-            //          "id" => $currentUser[0], "name"=> $currentUser[0]
-            //     ],
-            //     "hierarchy_reference"=> "Movie Genre",
-            //     "tag_hierarchy_path"=>  [
-            //         [
-            //             "type"=> "questiontype",
-            //             "name"=> "clozeassociation"
-            //         ]
-            //     ]
-            // ]
+            [
+                "id"=>                 "progress-by-tag",
+                "type"=>                "progress-by-tag",
+                "user_id"=>            $currentUser[0],
+                "ui"=>                  "table",
+                "hierarchy_reference"=> "Movie Genre"
+            ],
+            [
+                "id"=>    "progress-by-tag-by-user",
+                "type"=>  "progress-by-tag-by-user",
+                "users"=> [
+                    ["id"=>$currentUser[0], "name"=> $currentUser[0]]
+                ],
+                "hierarchy_reference" => "Movie Genre",
+
+            ]
         ]
     ];
 
-    // Instantiate the SDK Init class with your security and request data:
+    // Instantiate the SDK Init class with your security and request data=>
     $Init = new Init($service, $security, $secret, $request);
 
     // Call the generate() method to retrieve a JavaScript object
@@ -134,8 +131,11 @@
     </div>
 
     <div style="padding-bottom:30px;" class="container text-center"><a href="/bootjuly"><button id="backLogin">Back to login page</button></a></div>
-    <span class="learnosity-report" id="report-1"></span>
-    <span class="learnosity-report" id="report-2"></span>
+    <span class="learnosity-report" id="sessions-list"></span>
+    <span class="learnosity-report" id="progress-by-tag"></span>
+    <span class="learnosity-report" id="progress-by-tag-by-user"></span>
+
+
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/LeaderBoard.js"></script>
