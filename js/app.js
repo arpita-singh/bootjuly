@@ -191,7 +191,7 @@ ready(function() {
     }, false);
 
     // Add multiple event listeners to the new-user input
-    addListeneMulti(newUserField, 'keyup keydown blur focus click', function(e) {
+    addListenerMulti(newUserField, 'keyup keydown blur focus click', function(e) {
 
         var newUserLabel = document.querySelector('label[for="new-user"]');
 
