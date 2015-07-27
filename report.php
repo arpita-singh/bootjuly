@@ -134,10 +134,16 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/LeaderBoard.js"></script>
     <script>
-        var initOptions = <?php echo($initOptions) ?>;
+        var leaderBoard = new LeaderBoard();
 
-        var reportsApp = LearnosityReports.init(initOptions);
+        var initOptions = <?php echo($initOptions) ?>;
+        var eventOptions = {
+            dataListener: leaderBoard.build.bind(leaderBoard),
+        };
+
+        var reportsApp = LearnosityReports.init(initOptions, eventOptions);
         </script>
   </body>
 </html>
