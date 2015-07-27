@@ -7,6 +7,27 @@ var ready = function(fn) {
     }
 };
 
+// To read cookies - taken from the Internet
+(function(){
+    var cookies;
+
+    function readCookie(name,c,C,i){
+        if(cookies){ return cookies[name]; }
+
+        c = document.cookie.split('; ');
+        cookies = {};
+
+        for(i=c.length-1; i>=0; i--){
+           C = c[i].split('=');
+           cookies[C[0]] = C[1];
+        }
+
+        return cookies[name];
+    }
+
+    window.readCookie = readCookie;
+})();
+
 // Multiple event listeners - taken from the Internet
 var addListenerMulti = function(el, s, fn) {
     var evts = s.split(' ');
@@ -27,7 +48,7 @@ var guid = function() {
 };
 
 // Add to storage
-var addToStorageAndGo = function(username) {
+var addToStorageAndGo = function(username, el) {
 
     var users;
 
@@ -70,18 +91,18 @@ var addToStorageAndGo = function(username) {
     localStorage.setItem('users', JSON.stringify(users));
 
     // Set cookie, and go!
-    createCookieAndGo(newUser);
+    createCookieAndGo(newUser, el);
 
 };
 
 // Creates cookie and continues
-var createCookieAndGo = function(user) {
+var createCookieAndGo = function(user, el) {
 
     // Set cookie
     document.cookie = 'lrnuser=' + user.username + ',' + user.session;
 
     // Go to next page
-    window.location.href = 'assessment.php';
+    window.location.href = el.getAttribute('data-page');
 
 };
 
@@ -101,6 +122,9 @@ ready(function() {
         var element = document.getElementsByTagName('option')[0];
         element.parentNode.removeChild(element);
 
+        // Get current user for the select items
+        var currentUser = readCookie('lrnuser').split(',')[0];
+
         // Add options to existing-user select
         var i = 0,
             l = users.length;
@@ -110,21 +134,30 @@ ready(function() {
             var option = document.createElement("option");
             option.text = users[i].username;
             option.value = users[i].session;
+
+            // If current user exists, set to selected
+            if (currentUser === users[i].username) option.selected = true;
+
             select.add(option);
 
         }
 
-        // Show section, enable continue button and set event
+        // Show section, enable 'load user' (continue) and report buttons and set events
         document.getElementsByClassName('s-existing-user')[0].className = 's-existing-user';
-        var continueBtn = document.getElementById('continue');
-        continueBtn.disabled = false;
-        continueBtn.addEventListener('click', function() {
-            var selectedOption = document.querySelector('#existing-user option:checked');
-            createCookieAndGo({
-                username: selectedOption.text,
-                session: selectedOption.value
-            });
-        }, false);
+        // Array.prototype hack to make NodeList work with forEach.
+        var continueBtns = Array.prototype.slice.call(document.querySelectorAll('#continue, #report'), 0);
+        continueBtns.forEach(function(el, i, a) {
+            el.disabled = false;
+        });
+        continueBtns.forEach(function(el, i, a) {
+            el.addEventListener('click', function() {
+                var selectedOption = document.querySelector('#existing-user option:checked');
+                createCookieAndGo({
+                    username: selectedOption.text,
+                    session: selectedOption.value
+                }, el);
+            }, false);
+        });
 
         // Show section, enable clear button and set event
         document.getElementsByClassName('s-reset')[0].className = 's-reset';
@@ -153,12 +186,12 @@ ready(function() {
     // Add event listener to create button
     createBtn.addEventListener('click', function() {
 
-        addToStorageAndGo(newUserField.value);
+        addToStorageAndGo(newUserField.value, createBtn);
 
     }, false);
 
     // Add multiple event listeners to the new-user input
-    addListenerMulti(newUserField, 'keyup keydown blur focus click', function(e) {
+    addListeneMulti(newUserField, 'keyup keydown blur focus click', function(e) {
 
         var newUserLabel = document.querySelector('label[for="new-user"]');
 
