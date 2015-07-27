@@ -67,7 +67,7 @@
     <body>
 
     <div class="container">
-        <div class="row text-center">
+        <div class="row">
             <div class="col-md-12 text-center">
                 <h3>
                     MOVIE TRIVIA - Leader Board
@@ -75,18 +75,22 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-center">
+                            <th class="text-left">
                                 Rank
                             </th>
+                            <th class="text-left">
+                                User
+                            </th>
                             <th class="text-center">
-                                UserName
+                                Rating
                             </th>
                             <th class="text-center">
                                 Score
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="leaderBoardBody"></tbody>
+                    <!-- <tbody>
                         <tr>
                             <td>
                                 1
@@ -123,7 +127,7 @@
                                 5/15
                             </td>
                         </tr>
-                    </tbody>
+                    </tbody> -->
                 </table>
             </div>
         </div>
@@ -140,7 +144,11 @@
 
         var initOptions = <?php echo($initOptions) ?>;
         var eventOptions = {
-            dataListener: leaderBoard.build.bind(leaderBoard),
+            dataListener: function(data) {
+                debugger;
+                    leaderBoard.build(data[0].data);
+                    leaderBoard.attach('leaderBoardBody');
+                },
         };
 
         var reportsApp = LearnosityReports.init(initOptions, eventOptions);
