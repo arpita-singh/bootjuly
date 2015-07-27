@@ -199,6 +199,15 @@ input, select {
     -webkit-appearance: none;
     cursor: pointer;
 }
+input, select, button {
+    outline-width: 2px;
+    outline-offset: -2px;
+    outline-style: none;
+    outline-color: #000;
+}
+input:focus, select:focus, button:focus {
+    outline-style: solid;
+}
 input:required:invalid {
     color: #e74c3c;
     outline-color: #e74c3c;
