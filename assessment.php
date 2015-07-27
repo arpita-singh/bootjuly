@@ -171,7 +171,6 @@
         },
         syncPlays: function() {
             var user = getUser(username);
-            debugger;
             user.playCount = this.playCount;
             saveUser(user);
         },

@@ -145,7 +145,6 @@
         var initOptions = <?php echo($initOptions) ?>;
         var eventOptions = {
             dataListener: function(data) {
-                debugger;
                     leaderBoard.build(data[0].data);
                     leaderBoard.attach('leaderBoardBody');
                 },
