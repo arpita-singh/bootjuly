@@ -27,20 +27,20 @@
                 //     ]
                 // ]
             ],
-            [
-                "id" =>    "report-2",
-                "type" =>  "progress-by-tag-by-user",
-                "users" => [
-                     "id" => $currentUser[0], "name"=> $currentUser[0]
-                ],
-                "hierarchy_reference"=> "Movie Genre",
-                // "tag_hierarchy_path"=>  [
-                //     [
-                //         "type"=> "questiontype",
-                //         "name"=> "clozeassociation"
-                //     ]
-                // ]
-            ]
+            // [
+            //     "id" =>    "report-2",
+            //     "type" =>  "progress-by-tag-by-user",
+            //     "users" => [
+            //          "id" => $currentUser[0], "name"=> $currentUser[0]
+            //     ],
+            //     "hierarchy_reference"=> "Movie Genre",
+            //     "tag_hierarchy_path"=>  [
+            //         [
+            //             "type"=> "questiontype",
+            //             "name"=> "clozeassociation"
+            //         ]
+            //     ]
+            // ]
         ]
     ];
 
@@ -134,10 +134,16 @@
     <span class="learnosity-report" id="report-2"></span>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/LeaderBoard.js"></script>
     <script>
-        var initOptions = <?php echo($initOptions) ?>;
+        var leaderBoard = new LeaderBoard();
 
-        var reportsApp = LearnosityReports.init(initOptions);
+        var initOptions = <?php echo($initOptions) ?>;
+        var eventOptions = {
+            dataListener: leaderBoard.build.bind(leaderBoard),
+        };
+
+        var reportsApp = LearnosityReports.init(initOptions, eventOptions);
         </script>
   </body>
 </html>
