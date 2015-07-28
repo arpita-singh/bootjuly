@@ -1,44 +1,44 @@
 <?php
-    require_once __DIR__ .'/src/bootstrap.php';
+    require_once __DIR__.'/src/bootstrap.php';
 
     use LearnositySdk\Request\Init;
 
-    $currentUser = explode(",", $_COOKIE['lrnuser']);
+    $currentUser = explode(',', $_COOKIE['lrnuser']);
 
     $service = 'items';
     $security = [
            'consumer_key' => 'yis0TYCu7U9V4o7M',
-           'domain'       => 'localhost'
+           'domain' => 'localhost',
        ];
     $secret = '74c5fd430cf1242a527f6223aebd42d30464be22';
     $request = [
-        "reports"=> [
+        'reports' => [
             [
-                "id" => "sessions-list",
-                "type"=> "sessions-list",
-                "limit"=> 10,
-                "display_user" => true,
-                "activities"=> [
-                    ["id"=> "56d23693-df43-486a-882b-d7ccd010ada2", "name"=> "Movie Trivia"],
+                'id' => 'sessions-list',
+                'type' => 'sessions-list',
+                'limit' => 10,
+                'display_user' => true,
+                'activities' => [
+                    ['id' => '56d23693-df43-486a-882b-d7ccd010ada2', 'name' => 'Movie Trivia'],
                 ],
             ],
             [
-                "id"=>                 "progress-by-tag",
-                "type"=>                "progress-by-tag",
-                "user_id"=>            $currentUser[0],
-                "ui"=>                  "table",
-                "hierarchy_reference"=> "Movie Genre"
+                'id' => 'progress-by-tag',
+                'type' => 'progress-by-tag',
+                'user_id' => $currentUser[0],
+                'ui' => 'table',
+                'hierarchy_reference' => 'Movie Genre',
             ],
             [
-                "id"=>    "progress-by-tag-by-user",
-                "type"=>  "progress-by-tag-by-user",
-                "users"=> [
-                    ["id"=>$currentUser[0], "name"=> $currentUser[0]]
+                'id' => 'progress-by-tag-by-user',
+                'type' => 'progress-by-tag-by-user',
+                'users' => [
+                    ['id' => $currentUser[0], 'name' => $currentUser[0]],
                 ],
-                "hierarchy_reference" => "Movie Genre",
+                'hierarchy_reference' => 'Movie Genre',
 
-            ]
-        ]
+            ],
+        ],
     ];
 
     // Instantiate the SDK Init class with your security and request data=>

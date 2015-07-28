@@ -1,96 +1,95 @@
 <?php
-    require_once __DIR__ .'/src/bootstrap.php';
+    require_once __DIR__.'/src/bootstrap.php';
 
     use LearnositySdk\Request\Init;
-    use LearnositySdk\Utils\Uuid;
 
-    $currentUser = explode(",", $_COOKIE['lrnuser']);
+    $currentUser = explode(',', $_COOKIE['lrnuser']);
 
     $service = 'items';
     $security = [
            'consumer_key' => 'yis0TYCu7U9V4o7M',
-           'domain'       => 'localhost',
-           'user_id'      => 'demo_student'
+           'domain' => 'localhost',
+           'user_id' => 'demo_student',
        ];
     $secret = '74c5fd430cf1242a527f6223aebd42d30464be22';
     $request = [
-        'activity_id'           => '56d23693-df43-486a-882b-d7ccd010ada2',
-        'user_id'               => $currentUser[0],
-        'session_id'            => $currentUser[1],
-        'type'                  => 'submit_practice',
-        'name'                  => '1234',
-        'course_id'             => '1234',
-        'state'                 => 'resume',
-        "rendering_type"        => "assess",
-        "items" => [
-            "bootjuly_jh_1",
-            "bootjuly_as_2",
-            "bootjuly_as_3",
-            "bootjuly_jh_4a",
-            "bootjuly_jh_4b",
-            "bootjuly_as_5",
-            "bootjuly_bm_6",
-            "bootjuly_bm_7",
-            "bootjuly_bm_8",
-            "bootjuly_as_9",
-            "bootjuly_bm_10",
+        'activity_id' => '56d23693-df43-486a-882b-d7ccd010ada2',
+        'user_id' => $currentUser[0],
+        'session_id' => $currentUser[1],
+        'type' => 'submit_practice',
+        'name' => '1234',
+        'course_id' => '1234',
+        'state' => 'resume',
+        'rendering_type' => 'assess',
+        'items' => [
+            'bootjuly_jh_1',
+            'bootjuly_as_2',
+            'bootjuly_as_3',
+            'bootjuly_jh_4a',
+            'bootjuly_jh_4b',
+            'bootjuly_as_5',
+            'bootjuly_bm_6',
+            'bootjuly_bm_7',
+            'bootjuly_bm_8',
+            'bootjuly_as_9',
+            'bootjuly_bm_10',
         ],
 
-        "config" => [
-            "ui_style" => "main",
-            "time" => [
-                "max_time"      => 1500,
-                "limit_type"    => "soft",
-                "show_pause"    => true,
-                "show_time"     => true,
-                "countdown"     => 10
+        'config' => [
+            'ui_style' => 'main',
+            'time' => [
+                'max_time' => 1500,
+                'limit_type' => 'soft',
+                'show_pause' => true,
+                'show_time' => true,
+                'countdown' => 10,
             ],
-            "navigation" => [
-                "auto_save" => true,
-                "toc" => [
-                    "show_itemcount" => true
+            'navigation' => [
+                'auto_save' => true,
+                'toc' => [
+                    'show_itemcount' => true,
                 ],
-                "show_save"                   => true,
-                "show_submit"                 => true,
-                "skip_submit_confirmation"    => false,
-                "show_title"                  => true,
-                "show_progress"               => true,
-                "show_fullscreencontrol"      => true,
-                "show_intro"                  => true,
-                "show_outro"                  => true,
-                "show_prev"                   => true,
-                "show_next"                   => true,
-                "show_itemcount"              => false,
-                "warning_on_change"           => false,
-                "scrolling_indicator"         => false,
-                "scroll_to_top"               => true,
-                "scroll_to_test"              => false,
-                "transition"                  => "fade",
-                "transition_speed"            => 400,
-                "show_calculator"             => false,
-                "show_accessibility" => [
-                    "show_colourscheme"       => false,
-                    "show_fontsize"           => false,
-                    "show_zoom"               => false
+                'show_save' => true,
+                'show_submit' => true,
+                'skip_submit_confirmation' => false,
+                'show_title' => true,
+                'show_progress' => true,
+                'show_fullscreencontrol' => true,
+                'show_intro' => true,
+                'show_outro' => true,
+                'show_prev' => true,
+                'show_next' => true,
+                'show_itemcount' => false,
+                'warning_on_change' => false,
+                'scrolling_indicator' => false,
+                'scroll_to_top' => true,
+                'scroll_to_test' => false,
+                'transition' => 'fade',
+                'transition_speed' => 400,
+                'show_calculator' => false,
+                'show_accessibility' => [
+                    'show_colourscheme' => false,
+                    'show_fontsize' => false,
+                    'show_zoom' => false,
                 ],
-                "show_answermasking" => false,
-                "exit_securebrowser" => true,
-                "show_acknowledgements" => false
+                'show_answermasking' => false,
+                'exit_securebrowser' => true,
+                'show_acknowledgements' => false,
             ],
-            "configuration" => [
-                "fontsize"                    => "normal",
-                "dynamic"                     => false,
-                "idle_timeout"                => false,
-                "events"                      => false,
-                "preload_audio_player"        => false,
-                "submit_criteria"             => false,
-                "onsubmit_redirect_url"       => "report.php",
+            'configuration' => [
+                'fontsize' => 'normal',
+                'dynamic' => false,
+                'idle_timeout' => false,
+                'events' => false,
+                'preload_audio_player' => false,
+                'submit_criteria' => false,
+                'onsubmit_redirect_url' => 'report.php',
             ],
-            "questions_api_init_options" => [
-                "captureOnResumeError" => true
+            'questions_api_init_options' => [
+                'captureOnResumeError' => true,
             ],
-            "administration"                  => false,
-            "title"                           => "Movie Trivia"
+            'administration' => false,
+            'title' => 'Movie Trivia',
         ],
     ];
 
