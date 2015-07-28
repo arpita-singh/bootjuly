@@ -14,9 +14,9 @@ LeaderBoard.prototype.build = function(data) {
 
 	this.scores = [];
 	for (var i in data.sessions) {
-		var score = {};
 		var raw = data.sessions[i];
 
+		var score = {};
 		score.rawData = raw;
 		score.correct = parseInt(raw.count_score_correct);
 		score.max = parseInt(raw.count_score);
@@ -31,7 +31,7 @@ LeaderBoard.prototype.build = function(data) {
 
 	this.rank();
 	this.buildHtml();
-	
+
 };
 
 LeaderBoard.prototype.rank = function() {
@@ -76,4 +76,3 @@ LeaderBoard.prototype.buildHtml = function() {
 LeaderBoard.prototype.attach = function(tbody) {
 	$('#'+tbody).replaceWith(this.$el);
 };
-

@@ -12,7 +12,7 @@
        ];
     $secret = '74c5fd430cf1242a527f6223aebd42d30464be22';
     $request = [
-        'reports' => [
+        "reports"=>
             [
                 'id' => 'sessions-list',
                 'type' => 'sessions-list',
@@ -21,6 +21,7 @@
                 'activities' => [
                     ['id' => '56d23693-df43-486a-882b-d7ccd010ada2', 'name' => 'Movie Trivia'],
                 ],
+                "render" => false
             ],
             [
                 'id' => 'progress-by-tag',
@@ -37,8 +38,9 @@
                 ],
                 'hierarchy_reference' => 'Movie Genre',
 
-            ],
-        ],
+
+            ]
+        ]
     ];
 
     // Instantiate the SDK Init class with your security and request data=>
@@ -56,6 +58,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Movie Trivia Reporting</title>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/LeaderBoard.js"></script>
         <script src="//reports.learnosity.com"></script>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
@@ -64,6 +70,8 @@
     <body>
 
     <div class="container">
+
+
         <div class="row">
             <div class="col-md-12 text-center">
                 <h3>
@@ -87,58 +95,43 @@
                         </tr>
                     </thead>
                     <tbody id="leaderBoardBody"></tbody>
-                    <!-- <tbody>
-                        <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                Jordan
-                            </td>
-
-                            <td>
-                                15/15
-                            </td>
-                        </tr>
-                        <tr class="active">
-                            <td>
-                                2
-                            </td>
-                            <td>
-                            Brody
-                            </td>
-
-                            <td>
-                                12/15
-                            </td>
-                        </tr>
-                        <tr class="success">
-                            <td>
-                                3
-                            </td>
-                            <td>
-                                Dennis
-                            </td>
-
-                            <td>
-                                5/15
-                            </td>
-                        </tr>
-                    </tbody> -->
                 </table>
             </div>
         </div>
-    </div>
 
-    <div style="padding-bottom:30px;" class="container text-center"><a href="/bootjuly"><button id="backLogin">Back to login page</button></a></div>
+
+
+
+
+    <div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">...</div>
+    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+  </div>
+
+</div>
+
+
     <span class="learnosity-report" id="sessions-list"></span>
     <span class="learnosity-report" id="progress-by-tag"></span>
     <span class="learnosity-report" id="progress-by-tag-by-user"></span>
 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/LeaderBoard.js"></script>
+<div style="text-align:left"><a href="/bootjuly"><button id="backLogin">Back to login page</button></a></div>
+
+</div>
     <script>
         var leaderBoard = new LeaderBoard();
 
