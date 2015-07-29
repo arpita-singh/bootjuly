@@ -8,17 +8,17 @@
     $service = 'items';
     $security = [
            'consumer_key' => 'yis0TYCu7U9V4o7M',
-           'domain' => $_SERVER['SERVER_NAME'],
-           'user_id' => 'open_web_demo',
+           'domain' => 'localhost',
+           'user_id' => 'demo_student',
        ];
     $secret = '74c5fd430cf1242a527f6223aebd42d30464be22';
     $request = [
-        'activity_id' => '0d2e0df2-285d-4507-86e5-3ca8de0f3fc2',
+        'activity_id' => '56d23693-df43-486a-882b-d7ccd010ada2',
         'user_id' => $currentUser[0],
         'session_id' => $currentUser[1],
         'type' => 'submit_practice',
-        'name' => 'Movie Quiz',
-        'course_id' => 'Bootcamp - 20150720',
+        'name' => 'Movie Trivia',
+        'course_id' => 'bootcamp-july',
         'state' => 'resume',
         'rendering_type' => 'assess',
         'items' => [
