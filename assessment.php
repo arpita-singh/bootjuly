@@ -17,8 +17,8 @@
         'user_id' => $currentUser[0],
         'session_id' => $currentUser[1],
         'type' => 'submit_practice',
-        'name' => '1234',
-        'course_id' => '1234',
+        'name' => 'Movie Trivia',
+        'course_id' => 'bootcamp-july',
         'state' => 'resume',
         'rendering_type' => 'assess',
         'items' => [

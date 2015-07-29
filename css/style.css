@@ -250,4 +250,14 @@ button[disabled] {
 #backLogin {
     background: #CCCC00;
     border-radius: 0.25em;
+    font-size: 15px;
+    margin-top: 20px;
+    float: left;
+}
+
+#lastscore-bar-1{
+    height: 300px;
+    width: 300px;
+    margin-top: 40px;
+    margin-left: 200px;
 }
