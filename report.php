@@ -8,18 +8,19 @@
     $service = 'items';
     $security = [
            'consumer_key' => 'yis0TYCu7U9V4o7M',
-           'domain' => 'localhost',
+           'domain' => $_SERVER['SERVER_NAME'],
+           'user_id' => 'open_web_demo',
        ];
     $secret = '74c5fd430cf1242a527f6223aebd42d30464be22';
     $request = [
-        "reports"=>
+        "reports"=> [
             [
                 'id' => 'sessions-list',
                 'type' => 'sessions-list',
                 'limit' => 10,
                 'display_user' => true,
                 'activities' => [
-                    ['id' => '56d23693-df43-486a-882b-d7ccd010ada2', 'name' => 'Movie Trivia'],
+                    ['id' => '0d2e0df2-285d-4507-86e5-3ca8de0f3fc2', 'name' => 'Movie Trivia'],
                 ],
                 "render" => false
             ],
@@ -39,8 +40,8 @@
                 'hierarchy_reference' => 'Movie Genre',
 
 
-            ]
-        ]
+            ],
+        ],
     ];
 
     // Instantiate the SDK Init class with your security and request data=>
@@ -129,7 +130,7 @@
     <span class="learnosity-report" id="progress-by-tag-by-user"></span>
 
 
-<div style="text-align:left"><a href="/bootjuly"><button id="backLogin">Back to login page</button></a></div>
+<div style="text-align:left"><a href="index.html"><button id="backLogin">Back to login page</button></a></div>
 
 </div>
     <script>
